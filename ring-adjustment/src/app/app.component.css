@@ -1,0 +1,17 @@
+h2 {
+  text-align: center;
+}
+
+.w-100 {
+  width: 100%
+}
+
+.my-bgColor {
+  background-color: #dfe9eb;
+}
+
+.box {
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
