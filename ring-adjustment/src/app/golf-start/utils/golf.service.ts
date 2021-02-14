@@ -22,7 +22,7 @@ export class GolfService {
   public clubsMap = new Map<string, Club>();
 
   fetchBag(): Observable<any> {
-    return this.http.get("../assets/my_bag.json");
+    return this.http.get("assets/my_bag.json");
   }
 
   fetchClubConfigs(): Observable<any> {
