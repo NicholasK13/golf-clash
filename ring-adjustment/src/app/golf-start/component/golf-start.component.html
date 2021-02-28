@@ -1,7 +1,15 @@
 <div class="container">
 
-	<h2 class="mt-2" style="text-align: center;">Ring Adjustment v2.0</h2>
-
+	<div class="row">
+		<div class="col-md-11">
+			<h2 class="mt-2" style="text-align: center;">Ring Adjustment v2.0</h2>
+		</div>
+		<div class="col-md-1 mt-2">
+			<button type="button" class="plus alt radius" data-toggle="modal" data-target="#exampleModalCenter"
+				(click)="isModalOpen = true">
+			</button>
+		</div>
+	</div>
 	<div class="row" style="margin-top: 3%;">
 		<div class="col"></div>
 		<div class="col"></div>
@@ -9,8 +17,8 @@
 			<label class="control-label">Power Settings</label>
 			<div class="d-block btn-group">
 				<button *ngFor="let i of power; let j = index" class="btn shadow-none"
-                    [ngClass]="{'btn-secondary' : power[j], 'btn-outline-secondary': !power[j] }"
-                    (click)="selectPower(j)">P{{j}}</button>
+					[ngClass]="{'btn-secondary' : power[j], 'btn-outline-secondary': !power[j] }"
+					(click)="selectPower(j)">P{{j}}</button>
 			</div>
 		</div>
 	</div>
@@ -31,7 +39,7 @@
 					<div class="row ml-1" style="margin-top: 6%;">
 						<div class="col-lg-5">
 							<button type="submit" class="btn btn-success w-100" (click)="getAdjustment()"
-                                [disabled]="!windForm.valid || ballPower === -1">Submit</button>
+								[disabled]="!windForm.valid || ballPower === -1">Submit</button>
 						</div>
 						<div class="col-lg-5">
 							<button class="btn btn-info w-100" (click)="clear()">Clear</button>
@@ -59,4 +67,37 @@
 		</div>
 	</form>
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+	aria-hidden="true" *ngIf="isModalOpen">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Add Club</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-6">
+						<input list="clubs" id="search" [(ngModel)]="selection">
+						<datalist id="clubs">
+							<option *ngFor="let item of searchList" [value]="item">{{item}}</option>
+						</datalist>
+					</div>
+					<div class="col-md-6">
+						<input type="number" min="1" max="10" [(ngModel)]="level">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCancel()">Cancel</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal"
+					[disabled]="modalAddEnabled()" (click)="onAdd()">Add</button>
+			</div>
+		</div>
+	</div>
 </div>

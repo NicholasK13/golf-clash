@@ -10,16 +10,24 @@ import { GolfConstants } from "../utils/golf.constants";
   styleUrls: ["./golf-start.component.css"]
 })
 export class GolfStartComponent implements OnInit {
-  constructor(private golfService: GolfService) {}
+  constructor(private golfService: GolfService) { }
 
   public ballPower = -1;
   bag = {};
   displayClubs;
   power = [false, false, false, false, false, false];
   windForm: FormGroup;
+  clubsMap = new Map<string, Club>();
+  selection: string;
+  level: number = 1;
+  searchList: string[];
+  isModalOpen: boolean;
 
   ngOnInit(): void {
-    this.golfService.fetchClubConfigs().subscribe();
+    this.golfService.fetchClubConfigs().subscribe(e => {
+      this.clubsMap = this.golfService.clubsMap;
+      this.searchList = [...this.golfService.clubsMap.keys()];
+    });
     this.golfService.fetchBag().subscribe(bag => (this.bag = bag));
     this.initializeForm();
   }
@@ -85,4 +93,22 @@ export class GolfStartComponent implements OnInit {
         return "table-light";
     }
   }
+
+  // Modal changes
+
+  modalAddEnabled(): boolean {
+    const club = this.clubsMap.get(this.selection);
+    return !(club && this.level <= club.power.length && this.level >= 1);
+  }
+
+  onCancel() {
+    this.isModalOpen = false;
+  }
+
+  onAdd() {
+    this.bag[this.clubsMap.get(this.selection).name] = this.level;
+    console.log(this.bag)
+    this.isModalOpen = false;
+  }
+
 }
