@@ -2,11 +2,9 @@ table.table-bordered {
   border: 2px solid black;
   text-align: center;
 }
-
 table.table-bordered > thead > tr > th {
   border: 2px solid black;
 }
-
 table.table-bordered > tbody > tr > td {
   border: 2px solid black;
 }
@@ -17,10 +15,10 @@ table.table-bordered > tbody > tr > td {
   display:inline-block;
   
   background:
-  linear-gradient(#000,#000) top left,
-  linear-gradient(#000,#000) top right,
-  linear-gradient(#000,#000) bottom left,
-  linear-gradient(#000,#000) bottom right;
+    linear-gradient(#000,#000) top left,
+    linear-gradient(#000,#000) top right,
+    linear-gradient(#000,#000) bottom left,
+    linear-gradient(#000,#000) bottom right;
   background-size: calc(50% - 1px) calc(50% - 1px); /*thickness = 2px (2*1px) */
   background-repeat:no-repeat;
   border:10px solid #000; /*length = 30px (50px - 2x10px) */
@@ -33,4 +31,8 @@ table.table-bordered > tbody > tr > td {
 
 button:focus, input[type="button"]:focus {
   outline: none;
+}
+
+.table-orange {
+  background-color: #FFCCBC;
 }

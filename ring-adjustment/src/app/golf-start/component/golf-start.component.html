@@ -82,6 +82,10 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
+					<div class="col-md-6">Name</div>
+					<div class="col-md-6">Level</div>
+				</div>
+				<div class="row">
 					<div class="col-md-6">
 						<input list="clubs" id="search" [(ngModel)]="selection">
 						<datalist id="clubs">
@@ -94,9 +98,10 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCancel()">Cancel</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal"
-					[disabled]="modalAddEnabled()" (click)="onAdd()">Add</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"
+					(click)="onCancel()">Cancel</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="modalAddEnabled()"
+					(click)="onAdd()">Add</button>
 			</div>
 		</div>
 	</div>

@@ -57,6 +57,7 @@ export class GolfStartComponent implements OnInit {
         });
       }
     }
+    this.displayClubs.sort((o1, o2) => GolfConstants.ORDER[o1.club.type] - GolfConstants.ORDER[o2.club.type]);
   }
 
   clear(): void {
@@ -67,9 +68,6 @@ export class GolfStartComponent implements OnInit {
   selectPower(index: number): void {
     this.power = [false, false, false, false, false, false];
     this.power[index] = true;
-    this.power
-      .filter(e => !this.power[index])
-      .forEach((e, i) => (this.power[i] = false));
     this.ballPower = this.golfService.determinePowerBall(index);
   }
 
@@ -89,6 +87,8 @@ export class GolfStartComponent implements OnInit {
         return "table-active";
       case GolfConstants.WEDGE:
         return "table-primary";
+      case GolfConstants.ROUGH_IRON:
+        return "table-orange";
       default:
         return "table-light";
     }
@@ -107,7 +107,6 @@ export class GolfStartComponent implements OnInit {
 
   onAdd() {
     this.bag[this.clubsMap.get(this.selection).name] = this.level;
-    console.log(this.bag)
     this.isModalOpen = false;
   }
 
