@@ -35,13 +35,13 @@ export abstract class GolfConstants {
   static readonly POWER_5 = 1.13;
 
   // api's
-  static readonly DRIVERS_URL = "/golf-clash/assets/api-json/drivers.json";
-  static readonly WOODS_URL = "/golf-clash/assets/api-json/woods.json";
-  static readonly LONG_IRONS_URL = "/golf-clash/assets/api-json/long-irons.json";
-  static readonly SHORT_IRONS_URL = "/golf-clash/assets/api-json/short-irons.json";
-  static readonly WEDGES_URL = "/golf-clash/assets/api-json/wedges.json";
-  static readonly ROUGH_IRONS_URL = "/golf-clash/assets/api-json/rough-irons.json";
-  static readonly SAND_WEDGES_URL = "/golf-clash/assets/api-json/sand-wedges.json";
+  static readonly DRIVERS_URL = "/assets/api-json/drivers.json";
+  static readonly WOODS_URL = "/assets/api-json/woods.json";
+  static readonly LONG_IRONS_URL = "/assets/api-json/long-irons.json";
+  static readonly SHORT_IRONS_URL = "/assets/api-json/short-irons.json";
+  static readonly WEDGES_URL = "/assets/api-json/wedges.json";
+  static readonly ROUGH_IRONS_URL = "/assets/api-json/rough-irons.json";
+  static readonly SAND_WEDGES_URL = "/assets/api-json/sand-wedges.json";
   
   // sort
   static readonly ORDER = {
